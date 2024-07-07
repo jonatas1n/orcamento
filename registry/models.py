@@ -3,7 +3,7 @@ from django.db import models
 class Registry(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    item = models.ForeignKey('orcamento.SimpleItem', on_delete=models.CASCADE)
+    item = models.ForeignKey('orcamento.AbstractItem', on_delete=models.CASCADE)
 
     def __get_item_str(self):
         return str(self.item)
