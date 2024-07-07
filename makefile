@@ -7,6 +7,10 @@ restart:
 attach: # Acessa o terminal do container
 	docker-compose exec web bash
 
+migrate: # Executa as migrações do banco de dados
+	docker-compose exec web python manage.py makemigrations
+	docker-compose exec web python manage.py migrate
+
 fix-perms: # Atualiza as permissões dos diretórios, em caso de erro de permissão
 	sudo chown -R $(USER):$(USER) .
 
