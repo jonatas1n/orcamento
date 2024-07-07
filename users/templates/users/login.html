@@ -1,0 +1,21 @@
+{% extends 'orca/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/templates/users/login.css' %}">
+
+    <div class="container">
+        <div class="login__container">
+            <div id="login" class="card">
+                <h2>Login</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Login</button>
+                    <p>Não tem uma conta? <a href="{% url 'register' %}">Cadastre-se</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

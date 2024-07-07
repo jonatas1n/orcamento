@@ -1,0 +1,28 @@
+.budget__boards {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 1rem;
+}
+
+.budget__board {
+    --background-color: white;
+
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.budget__board h3 {
+    text-align: center;
+}
+
+.board__list {
+    padding-left: 0;
+}
+
+.board__add {
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .25rem;
+}

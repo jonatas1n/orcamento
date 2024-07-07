@@ -1,0 +1,12 @@
+#register {
+    display: grid;
+    justify-content: center;
+}
+
+.register__container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-y: hidden;
+}

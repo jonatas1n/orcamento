@@ -7,5 +7,11 @@ def budget(request):
     user = request.user
     budget = user.budget
     if not budget:
-        budget = Budget.objects.create(owner=user)
-    return render(request, "budget.html", { "budget": budget })
+        budget = Budget.objects.create(owner=user)[0]
+    data = {
+        "revenues": budget.revenues(),
+        "spents": budget.spents(),
+        "total": budget.total()
+    }
+
+    return render(request, "budget/budget.html", data)

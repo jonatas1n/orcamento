@@ -1,0 +1,22 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+button {
+    background-color: white;
+    border-radius: 1rem;
+    border: 1px solid #666;
+    transition: .25s;
+}
+
+button:hover {
+    background-color: #666;
+    color: white;
+    cursor: pointer;
+}
+
+.center {
+    text-align: center;
+}

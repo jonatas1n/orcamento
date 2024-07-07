@@ -1,0 +1,79 @@
+{% extends 'orca/base.html' %}
+
+{% load static %}
+
+{% block title %}Budget{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/templates/budget/budget.css' %}">
+
+  <div class="container">
+    <h1>Orca</h1>
+    <div class="budget__boards">
+      <div class="budget__board card">
+        <h3>Receita</h3>
+        <ul class="board__list">
+          {% for revenue in revenues %}
+            <li>{{ revenue.name }} - R$ {{ revenue.value }}</li>
+          {% empty %}
+            <p class="center">Nenhuma receita cadastrada</p>
+          {% endfor %}
+        </ul>
+        <button class="board__add"onclick="openModal('#revenue__modal')"><i class="fas fa-plus"></i>Adicionar receita</button>
+      </div>
+      <div class="budget__board card">
+        <h3>Despesas</h3>
+        <ul class="board__list">
+          {% for spent in revenues %}
+            <li>{{ spent.name }} - R$ {{ spent.value }}</li>
+          {% empty %}
+            <p class="center">Nenhuma despesa cadastrada</p>
+          {% endfor %}
+        </ul>
+        <button class="board__add"onclick="openModal('#spent__modal')"><i class="fas fa-plus"></i>Adicionar despesa</button>
+      </div>
+    </div>
+    {{ budget }}
+  </div>
+
+  <div class="modal" id="revenue__modal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__container">
+        <div class="modal__content">
+            <div class="modal__header">
+              <h3 class="modal__title"></h3>
+              <div class="modal__close" onclick="closeModal('#revenue__modal')">
+                <i class="fas fa-times"></i>
+              </div>
+            </div>
+            <div class="modal__body">
+              <h2>Criar receita</h2>
+              
+            </div>
+            <div class="modal__footer">
+                <button>Salvar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal" id="spent__modal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__container">
+        <div class="modal__content">
+            <div class="modal__header">
+              <h3 class="modal__title"></h3>
+              <div class="modal__close" onclick="closeModal('#spent__modal')">
+                <i class="fas fa-times"></i>
+              </div>
+            </div>
+            <div class="modal__body">
+              Criar despesas
+            </div>
+            <div class="modal__footer">
+                <button>Salvar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}

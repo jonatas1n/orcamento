@@ -39,7 +39,7 @@ class CustomUser(AbstractUser):
 
     @property
     def budget(self):
-        return Budget.objects.get(owner=self)
+        return Budget.objects.filter(owner=self).first()
 
     def __str__(self):
         return self.email

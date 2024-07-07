@@ -1,0 +1,49 @@
+{% extends 'orca/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+  <link rel="stylesheet" href="{% static 'css/templates/users/register.css' %}">
+
+  <div class="container">
+    <div class="register__container">
+      <div id="register">
+        <form method="POST" id="register" class="card">
+          <h1>CADASTRO</h1>
+          {% csrf_token %}
+
+          {% if error %}
+            <ul>{{ error }}</ul>
+          {% endif %}
+
+          <div class="email">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" />
+          </div>
+
+          <div class="confirm-email email">
+            <label for="confirm_email">Confirmar E-mail</label>
+            <input type="email" name="confirm_email" id="confirm_email" />
+          </div>
+
+          <div class="senha">
+            <label for="password">Senha</label>
+            <input type="password" name="password" id="password" />
+          </div>
+
+          <div class="confirmar-senha">
+            <label for="confirm_password">Confirmar Senha</label>
+            <input type="password" name="confirm_password" id="confirm_password" />
+          </div>
+
+          <div class="entrar">
+            <input type="submit" value="Cadastrar" />
+            <p>Já tem uma conta? <a href="{% url 'login' %}">Entre aqui.</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -11,14 +11,15 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href=" {% static "orca/css/base.css" %}}" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-    />
+    <link rel="stylesheet" href=" {% static "css/orca/base.css" %}" />
+    <link rel="stylesheet" href=" {% static "css/components/components.css" %}" />
+    <link rel="stylesheet" href=" {% static "css/components/modal.css" %}" />
+    <script src="https://kit.fontawesome.com/6242a3df73.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <div id="content">{% block content %}{% endblock %}</div>
   </body>
+
+  <script src="{% static "js/components/modal.js" %}"></script>
 </html>
