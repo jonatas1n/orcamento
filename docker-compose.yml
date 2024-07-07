@@ -1,0 +1,26 @@
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "3100:3100"
+    environment:
+      - DEBUG=1  # Configuração de ambiente de desenvolvimento
+    env_file:
+      - .env
+    entrypoint: ["/bin/bash", "run.sh"]
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
